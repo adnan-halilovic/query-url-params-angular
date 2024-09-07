@@ -1,0 +1,55 @@
+<div class="cars-content">
+  <div class="hero-section">
+    <div class="card bg-dark text-light rounded-0">
+      <img
+        class="card-img"
+        ngSrc="https://images.unsplash.com/photo-1485291571150-772bcfc10da5?q=80&w=3928&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        alt="Card image"
+        width="1191"
+        height="670"
+        priority
+      />
+      <div class="card-img-overlay d-flex justify-content-between flex-column">
+        <h1 class="card-title hero-title font-weight-bold">
+          Premium Car Shop
+        </h1>
+        <h3 class="card-text">Explore our cars</h3>
+      </div>
+    </div>
+  </div>
+  <div class="cars-container">
+    @for(car of cars; track car.Model){
+    <div class="card rounded-0 car">
+      <img
+        class="card-img-top"
+        [ngSrc]="car.Image"
+        [alt]="car.Model"
+        [width]="car.ImageWidth"
+        [height]="car.ImageHeight"
+        priority
+      />
+      <div class="card-body">
+        <h5 class="card-title">{{ car.Make }} {{ car.Model }}</h5>
+        <p class="card-text">{{ car.Description }}</p>
+        <p class="d-flex justify-content-between m-0">
+          <small class="badge text-bg-dark align-self-baseline"
+            >Type: {{ car.Type }}</small
+          >
+
+          <small class="badge align-self-baseline" [ngClass]="car.Available ? 'text-bg-success' : 'text-bg-danger'"
+            >{{ car.Available ? 'Available' : 'Not available' }}</small
+          >
+
+          <small
+            class="badge text-bg-secondary align-self-baseline"
+            [ngClass]="{ 'text-bg-success': car.Price < 25000 }"
+            >{{ car.Price | currency }}</small
+          >
+        </p>
+      </div>
+    </div>
+    } @empty {
+    <p>No cars matching your filter...</p>
+    }
+  </div>
+</div>

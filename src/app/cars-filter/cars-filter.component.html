@@ -1,0 +1,89 @@
+<div class="content">
+  <h3>Cars filter</h3>
+  <form [formGroup]="carsFilter" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="make">Make:</label>
+      <input id="make" formControlName="Make" />
+    </div>
+
+    <!-- <div>
+      <label for="make">Year:</label>
+      <input id="make" formControlName="Year" />
+    </div> -->
+
+    <div>
+      <label for="year">Year:</label>
+      <select id="year" formControlName="Year" class="form-control">
+        @for (year of years; track $index) {
+        <option [value]="year" class="form-control">{{ year }}</option>
+        }
+      </select>
+    </div>
+
+    <div>
+      <label for="model">Model:</label>
+      <input id="model" formControlName="Model" class="form-control" />
+    </div>
+
+    <div>
+      <label for="year">Year:</label>
+      <input
+        id="year"
+        type="number"
+        formControlName="Year"
+        class="form-control"
+      />
+    </div>
+
+    <div>
+      <label for="mileage">Mileage:</label>
+      <input
+        id="mileage"
+        type="number"
+        formControlName="Mileage"
+        class="form-control"
+      />
+    </div>
+
+    <div>
+      <label for="type">Type:</label>
+      <input id="type" formControlName="Type" class="form-control" />
+    </div>
+
+    <div>
+      <label for="color">Color:</label>
+      <input id="color" formControlName="Color" class="form-control" />
+    </div>
+
+    <div>
+      <label for="transmission">Transmission:</label>
+      <input
+        id="transmission"
+        formControlName="Transmission"
+        class="form-control"
+      />
+    </div>
+
+    <div>
+      <label for="fuelType">Fuel Type:</label>
+      <input id="fuelType" formControlName="FuelType" class="form-control" />
+    </div>
+
+    <div>
+      <label for="price">Price:</label>
+      <input
+        id="price"
+        type="number"
+        formControlName="Price"
+        class="form-control"
+      />
+    </div>
+
+    <div class="my-1">
+      <label for="price">Show available only: </label>
+      <input id="price" type="checkbox" formControlName="Available" />
+    </div>
+
+    <button type="submit" [disabled]="!carsFilter.valid">Submit</button>
+  </form>
+</div>

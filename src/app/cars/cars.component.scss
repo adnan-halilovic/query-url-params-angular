@@ -1,0 +1,46 @@
+.cars-content {
+  .hero-section {
+    max-height: 800px;
+    img {
+      max-height: 800px;
+      object-fit: contain;
+    }
+    .hero-title {
+      font-size: 120px;
+      padding: 15px;
+      font-weight: bold;
+    }
+
+    .card-text {
+      font-style: italic;
+    }
+  }
+
+  .cars-container {
+    margin-top: 20px;
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+    padding: 15px;
+    margin: 0 auto;
+    .car {
+      width: 33%;
+      display: flex;
+      flex-shrink: 1;
+      margin-top: 10px;
+      img {
+        height: 250px;
+        object-fit: cover;
+        border-radius: 0;
+      }
+
+      &-type {
+        font-style: italic;
+        background-color: black;
+        color: white;
+        border-radius: 5px;
+        padding: 5px;
+      }
+    }
+  }
+}
